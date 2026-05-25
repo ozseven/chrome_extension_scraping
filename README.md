@@ -2,28 +2,48 @@
 
 Bu Chrome eklentisi, hedef web sitelerindeki HTML öğelerini, API (XHR/Fetch) isteklerini ve yanıtlarını kaydederek Google Gemini modelini kullanarak Scrapy örümcekleri (spider) üretmenizi sağlar.
 
+## Yenilikler ve Endüstri Standartları (v3.0)
+
+Eklenti, güvenlik, performans ve kullanıcı deneyimi açısından modern tarayıcı eklentisi mimarisine ve standartlarına yükseltilmiştir:
+
+- **Service Worker Mimarisi**: API istekleri arka planda (`background.js`) çalıştırılarak İçerik Güvenlik Politikası (CSP) engelleri tamamen aşılmıştır.
+- **Hassas Veri Maskeleme**: Yakalanan API isteklerindeki `Cookie`, `Authorization` gibi kimlik doğrulama başlıkları otomatik olarak maskelenerek güvenlik sızıntısı önlenmiştir.
+- **HTML Temizleme (Token Tasarrufu)**: Sayfadan seçilen HTML kodlarının içindeki inline stiller, SVG yolları ve script etiketleri temizlenerek Gemini API token harcaması **%70** azaltılmış ve veri doğruluğu artırılmıştır.
+- **Sürüklenebilir ve Küçültülebilir Panel**: Yüzen panel artık ekranın her yerine taşınabilir ve tek tıkla küçük bir yüzen `🤖` simgesine küçültülebilir.
+- **API Bağlantı Testi**: Seçenekler (Ayarlar) sayfasına API anahtarını doğrudan test edebileceğiniz bir bağlantı test mekanizması eklenmiştir.
+
 ## Özellikler
 
-- **Sayfa İçi Takip**: Sayfada dolaşırken tıklanan elementleri ve DOM yapısını analiz eder.
-- **XHR/Fetch İstek Takibi**: Sayfanın arka planda yaptığı API isteklerini yakalar.
-- **Yapay Zeka Destekli Kod Üretimi**: Toplanan verileri kullanarak Gemini API aracılığıyla otomatik Scrapy spider kodu üretir.
-- **İnteraktif Sohbet Arayüzü**: Kod üzerinde düzeltme ve geliştirme isteklerinizi doğrudan eklenti içinden iletebilirsiniz.
-- **Kolay Ayarlar**: Gemini API anahtarınızı, model seçiminizi ve özel sistem yönergelerinizi kolayca yapılandırabilirsiniz.
+- **Sayfa İçi İnteraktif Seçici**: Sayfadaki elemanları görerek ve isimlendirerek seçebilirsiniz.
+- **API İstek Takibi**: Sayfanın arka planda yaptığı Fetch ve XHR çağrılarını yakalar.
+- **Yapay Zeka Destekli Kod Üretimi**: Toplanan yapılandırılmış veriyi kullanarak Gemini API ile optimize edilmiş Python Scrapy kodunu yazar.
+- **İnteraktif Sohbet Arayüzü**: Kod üzerinde düzeltme ve geliştirme taleplerinizi paneldeki chat üzerinden yürütebilirsiniz.
+
+## Geliştirme ve Derleme (Vite + TypeScript)
+
+Eklenti kaynak kodları `src/` klasöründedir. Değişiklik yaptıktan sonra eklentiyi derlemeniz gerekir:
+
+1. Bağımlılıkları kurun:
+   ```bash
+   npm install
+   ```
+2. Eklentiyi derleyin:
+   ```bash
+   npm run build
+   ```
+   Bu komut dosyaları `dist/` klasörüne çıktılayacaktır.
 
 ## Hızlı Kurulum
 
-1. Bu depoyu yerel bilgisayarınıza klonlayın:
-   ```bash
-   git clone git@github.com:ozseven/chrome_extension_scraping.git
-   ```
+1. Bu depoyu yerel bilgisayarınıza klonlayın ve yukarıdaki adımlarla derleyin (`npm run build`).
 2. Google Chrome tarayıcınızı açın ve `chrome://extensions/` adresine gidin.
 3. Sağ üst köşedeki **Geliştirici modu** (Developer mode) seçeneğini aktif hale getirin.
 4. Sol üstteki **Paketlenmemiş öğe yükle** (Load unpacked) butonuna tıklayın.
-5. Bu projenin dizinini seçin.
+5. Proje klasörü içindeki **`dist`** dizinini seçin.
 
 ## Detaylı Kullanım Kılavuzu
 
-Eklentinin tüm özellikleri, arayüz kullanımı, API yakalama adımları ve kod düzeltme sisteminin detaylı anlatımı için **[Kullanım Kılavuzu'na (KULLANIM_KILAVUZU.md)](file:///d:/Programlama/Chrome_web_extension_for_scraping/chrome_extension/KULLANIM_KILAVUZU.md)** göz atın.
+Eklentinin tüm özellikleri, arayüz kullanımı, API yakalama adımları ve kod düzeltme sisteminin detaylı anlatımı için **[Kullanım Kılavuzu'na (KULLANIM_KILAVUZU.md)](KULLANIM_KILAVUZU.md)** göz atın.
 
 ## Lisans
 

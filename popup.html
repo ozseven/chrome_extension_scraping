@@ -2,115 +2,11 @@
 <html lang="tr">
 <head>
   <meta charset="UTF-8">
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
-    body {
-      width: 360px;
-      padding: 16px;
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-    }
-
-    h2 {
-      margin-bottom: 14px;
-      font-size: 16px;
-      color: #333;
-      border-bottom: 2px solid #667eea;
-      padding-bottom: 8px;
-    }
-
-    /* API Key durum kutusu */
-    #apiKeyStatus {
-      padding: 9px 12px;
-      border-radius: 6px;
-      font-size: 12px;
-      font-weight: 600;
-      margin-bottom: 14px;
-      background: #f0f0f0;
-      color: #666;
-      border: 1px solid #ddd;
-      transition: all 0.3s;
-    }
-
-    .info-box {
-      background: #fffacd;
-      border: 1px solid #ff9800;
-      border-radius: 6px;
-      padding: 9px 12px;
-      margin-bottom: 14px;
-      font-size: 12px;
-      color: #555;
-      line-height: 1.5;
-    }
-
-    .button-container {
-      display: flex;
-      gap: 8px;
-      width: 100%;
-      margin-bottom: 8px;
-    }
-
-    button {
-      flex: 1;
-      padding: 10px;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      font-weight: bold;
-      transition: 0.2s;
-      font-size: 13px;
-    }
-
-    #startBtn {
-      background: linear-gradient(135deg, #28a745, #1e7e34);
-      color: white;
-    }
-    #startBtn:hover {
-      box-shadow: 0 3px 10px rgba(40,167,69,0.4);
-      transform: translateY(-1px);
-    }
-
-    #settingsBtn {
-      background: linear-gradient(135deg, #667eea, #764ba2);
-      color: white;
-    }
-    #settingsBtn:hover {
-      box-shadow: 0 3px 10px rgba(102,126,234,0.4);
-      transform: translateY(-1px);
-    }
-
-    .footer-text {
-      font-size: 10px;
-      color: #777;
-      text-align: center;
-      margin-top: 10px;
-      padding-top: 8px;
-      border-top: 1px solid #ddd;
-      line-height: 1.5;
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Otonom Scrapy Ajanı</title>
 </head>
 <body>
-
-  <h2>🤖 Otonom Scraping Ajanı</h2>
-
-  <!-- API Key durum göstergesi -->
-  <div id="apiKeyStatus">⏳ Kontrol ediliyor...</div>
-
-  <div class="info-box">
-    ⚡ HTML alanı seç → API isteklerini yakala → Gemini'ye gönder → Scrapy kodu al!
-  </div>
-
-  <div class="button-container">
-    <button id="startBtn">🚀 Paneli Aç</button>
-    <button id="settingsBtn">⚙️ Ayarlar</button>
-  </div>
-
-  <div class="footer-text">
-    API Anahtarı ve Model seçimi için <strong>Ayarlar</strong>'ı kullanın.
-  </div>
-
-  <script src="popup.js"></script>
+  <div id="root"></div>
+  <script type="module" src="/src/popup/main.tsx"></script>
 </body>
 </html>
