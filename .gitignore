@@ -38,3 +38,4 @@ yarn-error.log*
 Thumbs.db
 db.json
 .DS_Store
+crystal_campaigns.json
