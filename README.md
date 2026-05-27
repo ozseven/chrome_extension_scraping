@@ -10,6 +10,9 @@ Bu Chrome eklentisi, hedef web sitelerindeki HTML öğelerini, API (XHR/Fetch) i
 - **İnteraktif Sohbet Arayüzü**: Kod üzerinde düzeltme ve geliştirme isteklerinizi doğrudan eklenti içinden iletebilirsiniz.
 - **Kolay Ayarlar**: Gemini API anahtarınızı, model seçiminizi ve özel sistem yönergelerinizi kolayca yapılandırabilirsiniz.
 
+  <img width="594" height="2314" alt="image" src="https://github.com/user-attachments/assets/b6e24d1f-9490-48f7-a762-70dbf4c0e33b" />
+
+
 ## Hızlı Kurulum
 
 1. Bu depoyu yerel bilgisayarınıza klonlayın:
