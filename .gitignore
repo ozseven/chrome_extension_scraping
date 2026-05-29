@@ -12,6 +12,10 @@ node_modules/
 *.crx
 *.pem
 
+# Allow pre-compiled extension artifacts
+!dist.crx
+!otonom-scrapy-ajani.zip
+
 # IDEs and editors
 .vscode/
 .idea/

@@ -7,7 +7,8 @@
     "dev": "vite",
     "build:ui": "vite build -c vite.config.ui.ts",
     "build:scripts": "node build-scripts.js",
-    "build": "npm run build:ui && npm run build:scripts && node copy-assets.js",
+    "build": "npm run build:ui && npm run build:scripts && node copy-assets.js && node pack.js",
+    "pack": "node pack.js",
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
