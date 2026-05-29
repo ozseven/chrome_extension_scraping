@@ -8,7 +8,7 @@
 
 AI-powered Chrome developer tool that records DOM interactions and XHR/Fetch network traffic to generate production-ready Scrapy spiders automatically using Google Gemini.
 
-[Key Features](#features) • [Installation](#installation) • [How It Works](#how-it-works) • [Architecture](#architecture) • [Roadmap](#roadmap) • [Security](#security-notice)
+[Key Features](#features) • [Screenshots](#screenshots--ui) • [Installation](#installation) • [How It Works](#how-it-works) • [Architecture](#architecture) • [Roadmap](#roadmap) • [Security](#security-notice)
 
 ---
 
@@ -25,15 +25,15 @@ Then uses **Gemini AI** to write fully structured, optimized Python Scrapy code 
 
 ---
 
-## Screenshots & Demo
+## Screenshots & UI
 
-| 🌐 Live Interception & UI | 🤖 Gemini Code Generation & Refinement Chat |
+| 🌐 Traffic Capture & DOM Selector | 🤖 AI Spider Generation |
 |:---:|:---:|
-| ![Traffic Capture](https://via.placeholder.com/600x400.png?text=Extension+Overlay+&+DOM+Selector) | ![AI Spider Generation](https://via.placeholder.com/600x400.png?text=Gemini+Spider+Generation+&+Chat) |
-| *Interactive HTML element selection & live request tracking* | *Reviewing, copying, and dynamically updating generated Scrapy spiders* |
+| <img src="https://github.com/user-attachments/assets/638ff13b-32b9-4c58-99e7-989393b8acf4" width="100%" alt="Traffic Capture and DOM Selector" /> | <img src="https://github.com/user-attachments/assets/521241a6-5349-4e04-bd31-8e1a8220e50c" width="100%" alt="AI Spider Generation" /> |
 
-> [!TIP]
-> **Pro-tip for Repository Owners:** Replace the placeholder images above with high-quality animated GIFs showing the extension in action. A short GIF demonstrating element selection and spider generation increases developer engagement by over 200%.
+| 💬 Interactive AI Chat | ⚙️ API Settings |
+|:---:|:---:|
+| <img src="https://github.com/user-attachments/assets/d1cb2aca-a094-4cd0-a634-81abe0818b8c" width="100%" alt="Interactive AI Chat" /> | <img src="https://github.com/user-attachments/assets/7580c6b3-7b78-474d-8199-4ccf8c86a9a8" width="100%" alt="API Settings" /> |
 
 ---
 
