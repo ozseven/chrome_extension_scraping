@@ -40,23 +40,41 @@ const DEFAULT_SETTINGS = {
 // =================================================================
 async function loadSettings() {
   return new Promise((resolve) => {
-    chrome.storage.sync.get(DEFAULT_SETTINGS, (settings) => {
-      // systemPrompt boşsa default'u kullan
-      if (!settings.systemPrompt || settings.systemPrompt.trim() === '') {
-        settings.systemPrompt = DEFAULT_SYSTEM_PROMPT;
-      }
-      // apiModel boşsa default'u kullan
-      if (!settings.apiModel || settings.apiModel.trim() === '') {
-        settings.apiModel = DEFAULT_SETTINGS.apiModel;
-      }
-      resolve(settings);
+    // systemPrompt boyutu sync'in 8KB/item limitini kolayca aşabildiği için
+    // ayrı olarak local storage'dan okunuyor.
+    const { systemPrompt, ...syncDefaults } = DEFAULT_SETTINGS;
+
+    chrome.storage.sync.get(syncDefaults, (syncSettings) => {
+      chrome.storage.local.get(['systemPrompt'], (localSettings) => {
+        const settings = { ...syncSettings, ...localSettings };
+
+        // systemPrompt boşsa default'u kullan
+        if (!settings.systemPrompt || settings.systemPrompt.trim() === '') {
+          settings.systemPrompt = DEFAULT_SYSTEM_PROMPT;
+        }
+        // apiModel boşsa default'u kullan
+        if (!settings.apiModel || settings.apiModel.trim() === '') {
+          settings.apiModel = DEFAULT_SETTINGS.apiModel;
+        }
+        resolve(settings);
+      });
     });
   });
 }
 
 async function saveSettings(settings) {
+  // systemPrompt'u local'e, geri kalan (küçük) ayarları sync'e ayır.
+  const { systemPrompt, ...syncSettings } = settings;
+
+  await new Promise((resolve, reject) => {
+    chrome.storage.local.set({ systemPrompt }, () => {
+      if (chrome.runtime.lastError) reject(chrome.runtime.lastError);
+      else resolve();
+    });
+  });
+
   return new Promise((resolve, reject) => {
-    chrome.storage.sync.set(settings, () => {
+    chrome.storage.sync.set(syncSettings, () => {
       if (chrome.runtime.lastError) {
         reject(chrome.runtime.lastError);
       } else {

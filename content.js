@@ -163,7 +163,7 @@ function buildStructuredPayload(projName, promptText, selectedItems, apiRequests
 // Gemini'ye gönderilecek system prompt (ayarlardan dinamik olarak al)
 async function buildSystemPrompt() {
     return new Promise((resolve) => {
-        chrome.storage.sync.get(['systemPrompt'], (result) => {
+        chrome.storage.local.get(['systemPrompt'], (result) => {
             const defaultPrompt = `Sen kıdemli bir Python ve Scrapy geliştiricisisi ve Reverse Engineering uzmanısın.
 Kullanıcı senin için hedef sitelerde adım adım dolaştı ve verileri topladı.
 
